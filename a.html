@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,8 @@
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@700;800&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --accent-pink: #ff4c7a;
@@ -124,12 +126,10 @@
       right: 0;
       bottom: 0;
       height: 28px;
-      background: linear-gradient(
-        to bottom,
-        rgba(28, 23, 20, 0) 0%,
-        rgba(28, 23, 20, 0.42) 50%,
-        rgba(28, 23, 20, 0.92) 100%
-      );
+      background: linear-gradient(to bottom,
+          rgba(28, 23, 20, 0) 0%,
+          rgba(28, 23, 20, 0.42) 50%,
+          rgba(28, 23, 20, 0.92) 100%);
       z-index: 1;
       pointer-events: none;
     }
@@ -138,33 +138,59 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: start;
+      padding: 18px 20px 0;
       pointer-events: none;
     }
 
     .cover-logo {
-      max-width: 48%;
-      height: clamp(56px, 8.5vw, 110px);
+      position: static;
+      max-width: 36%;
+      height: clamp(52px, 7.8vw, 96px);
       width: auto;
       object-fit: contain;
       filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.55));
       transform: translateZ(0);
     }
 
+    .cover-logo-left {
+      justify-self: start;
+    }
+
+    .cover-logo-right {
+      justify-self: end;
+    }
+
     .cover-logo-center {
-      position: absolute;
-      left: 50%;
-      top: 18px;
-      transform: translateX(-50%);
-      width: clamp(24px, 3.4vw, 38px);
+      display: block;
+      width: clamp(66px, 9vw, 118px);
       height: auto;
       object-fit: contain;
       filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.5));
+      pointer-events: none;
+    }
+
+    .cover-middle-brand {
+      justify-self: center;
+      align-self: start;
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
       z-index: 3;
       pointer-events: none;
+    }
+
+    .cover-middle-text {
+      color: #ffffff;
+      font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: clamp(14px, 1.8vw, 24px);
+      font-weight: 700;
+      line-height: 1;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+      white-space: nowrap;
     }
 
     .cover-photo {
@@ -299,7 +325,7 @@
       border-radius: 0 0 25px 25px;
     }
 
-    form > * {
+    form>* {
       position: relative;
       z-index: 1;
     }
@@ -497,6 +523,7 @@
         transform: translateX(400px);
         opacity: 0;
       }
+
       to {
         transform: translateX(0);
         opacity: 1;
@@ -508,6 +535,7 @@
         opacity: 1;
         transform: translateX(0);
       }
+
       to {
         opacity: 0;
         transform: translateX(400px);
@@ -518,9 +546,11 @@
       0% {
         background-position: 0% 40%;
       }
+
       50% {
         background-position: 100% 60%;
       }
+
       100% {
         background-position: 0% 40%;
       }
@@ -530,6 +560,7 @@
       from {
         opacity: 0.72;
       }
+
       to {
         opacity: 0.92;
       }
@@ -539,9 +570,11 @@
       0% {
         transform: translateX(-50%) translateY(0);
       }
+
       50% {
         transform: translateX(-50%) translateY(-14px);
       }
+
       100% {
         transform: translateX(-50%) translateY(0);
       }
@@ -551,39 +584,47 @@
       0% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-10px);
       }
+
       100% {
         transform: translateY(0);
       }
     }
 
     @keyframes titlePulse {
+
       0%,
       100% {
         text-shadow: 0 0 0 rgba(154, 26, 103, 0);
       }
+
       50% {
         text-shadow: 0 1px 12px rgba(154, 26, 103, 0.2);
       }
     }
 
     @keyframes clinicSway {
+
       0%,
       100% {
         transform: rotate(0deg);
       }
+
       50% {
         transform: rotate(-2deg);
       }
     }
 
     @keyframes buttonGlow {
+
       0%,
       100% {
         box-shadow: 0 8px 24px rgba(116, 18, 79, 0.35), 0 0 0 1px rgba(116, 18, 79, 0.2);
       }
+
       50% {
         box-shadow: 0 12px 30px rgba(116, 18, 79, 0.45), 0 0 14px rgba(232, 172, 32, 0.25);
       }
@@ -628,14 +669,14 @@
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    .form-container {
-    }
+    .form-container {}
 
     /* Responsive design */
     @media (max-width: 768px) {
@@ -662,11 +703,7 @@
       }
 
       .cover-overlay {
-        padding: 14px 14px;
-      }
-
-      .cover-logo-center {
-        top: 14px;
+        padding: 14px 14px 0;
       }
 
       form {
@@ -750,12 +787,19 @@
       }
 
       .cover-overlay {
-        padding: 12px 12px;
+        padding: 12px 12px 0;
       }
 
       .cover-logo-center {
-        top: 13px;
-        width: 30px;
+        width: 92px;
+      }
+
+      .cover-middle-brand {
+        margin-top: 20px;
+      }
+
+      .cover-middle-text {
+        font-size: 18px;
       }
 
       .cover-photo-container::after {
@@ -873,13 +917,20 @@
       }
 
       .cover-logo {
-        height: 64px;
-        max-width: 48%;
+        height: 62px;
+        max-width: 36%;
       }
 
       .cover-logo-center {
-        top: 12px;
-        width: 26px;
+        width: 80px;
+      }
+
+      .cover-middle-brand {
+        margin-top: 18px;
+      }
+
+      .cover-middle-text {
+        font-size: 16px;
       }
 
       .cover-photo-container::after {
@@ -981,22 +1032,25 @@
     }
   </style>
 </head>
+
 <body>
   <div class="form-container">
     <div class="cover-photo-container">
       <img class="cover-photo" src="card-photo.png" alt="Event cover photo">
       <div class="cover-overlay" aria-hidden="true">
-        <img class="cover-logo" src="Tezspire logo.png" alt="">
-        <img class="cover-logo-center" src="middle-logo.png" alt="">
-        <img class="cover-logo" src="rise above.png" alt="">
+        <img class="cover-logo cover-logo-left" src="Tezspire logo.png" alt="">
+        <div class="cover-middle-brand">
+          <img class="cover-logo-center" src="logo.png" alt="">
+        </div>
+        <img class="cover-logo cover-logo-right" src="rise above.png" alt="">
       </div>
     </div>
     <form id="registration-form">
-      <div class="event-header">
+      <div class="event-header">  
         <h1 class="event-title">CRSwNP LAUNCH EVENT</h1>
         <img class="cme-badge" src="CME 4 Hours.png" alt="CME 4 Hours">
       </div>
-      
+
       <input type="text" name="FirstName" placeholder="First Name" required>
       <input type="text" name="LastName" placeholder="Last Name" required>
       <input type="text" name="Speciality" placeholder="Speciality" required>
@@ -1018,15 +1072,15 @@
       const toastContainer = document.getElementById('toast-container')
       const toast = document.createElement('div')
       toast.className = `toast ${type}`
-      
+
       const icon = type === 'success' ? '✓' : '✕'
       toast.innerHTML = `
         <span class="toast-icon">${icon}</span>
         <span class="toast-message">${message}</span>
       `
-      
+
       toastContainer.appendChild(toast)
-      
+
       // Remove toast after animation completes
       setTimeout(() => {
         toast.remove()
@@ -1038,22 +1092,22 @@
 
     form.addEventListener('submit', e => {
       e.preventDefault()
-      
+
       // Disable submit button to prevent double submission
       const submitButton = document.getElementById('submit')
       const originalText = submitButton.textContent
       submitButton.disabled = true
       submitButton.textContent = 'Submitting...'
-      
+
       // Convert FormData to URL-encoded format for better compatibility
       const formData = new FormData(form)
       const data = new URLSearchParams()
       for (const pair of formData) {
         data.append(pair[0], pair[1])
       }
-      
-      fetch(scriptURL, { 
-        method: 'POST', 
+
+      fetch(scriptURL, {
+        method: 'POST',
         mode: 'no-cors', // Required for Google Apps Script
         redirect: 'follow',
         body: data
@@ -1075,10 +1129,10 @@
           console.error('Full error:', error)
           console.error('Script URL:', scriptURL)
           console.error('========================')
-          
+
           let errorMsg = "An error occurred while submitting the form. "
           errorMsg += "Please check: Google Apps Script access, sheet headers, or network connection."
-          
+
           showToast(errorMsg, "error")
           submitButton.disabled = false
           submitButton.textContent = originalText
@@ -1086,4 +1140,5 @@
     })
   </script>
 </body>
+
 </html>
