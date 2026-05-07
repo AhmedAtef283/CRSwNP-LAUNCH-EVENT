@@ -17,6 +17,7 @@
       --accent-gold-soft: #f0c153;
       --text-on-dark: rgba(255, 255, 255, 0.92);
       --surface-bg: #07060a;
+      --form-merge: #1c1714;
     }
 
     * {
@@ -58,9 +59,9 @@
       width: 100%;
       max-width: 760px;
       background:
-        radial-gradient(circle at 18% 20%, rgba(255, 76, 122, 0.10), transparent 55%),
-        radial-gradient(circle at 82% 12%, rgba(232, 172, 32, 0.10), transparent 52%),
-        linear-gradient(180deg, rgba(10, 8, 14, 0.72) 0%, rgba(6, 5, 9, 0.80) 100%);
+        radial-gradient(circle at 18% 20%, rgba(255, 76, 122, 0.05), transparent 55%),
+        radial-gradient(circle at 82% 12%, rgba(232, 172, 32, 0.06), transparent 52%),
+        linear-gradient(180deg, rgba(28, 23, 20, 0.90) 0%, rgba(28, 23, 20, 0.98) 100%);
       padding: 0;
       border-radius: 25px;
       backdrop-filter: blur(15px);
@@ -110,7 +111,7 @@
       display: block;
       position: relative;
       box-shadow: none;
-      background-color: rgba(0, 0, 0, 0.15);
+      background-color: var(--form-merge);
       height: auto;
       max-width: 100%;
     }
@@ -122,12 +123,12 @@
       left: 0;
       right: 0;
       bottom: 0;
-      height: 78px;
+      height: 28px;
       background: linear-gradient(
         to bottom,
-        rgba(8, 7, 12, 0) 0%,
-        rgba(8, 7, 12, 0.22) 48%,
-        rgba(8, 7, 12, 0.46) 100%
+        rgba(28, 23, 20, 0) 0%,
+        rgba(28, 23, 20, 0.42) 50%,
+        rgba(28, 23, 20, 0.92) 100%
       );
       z-index: 1;
       pointer-events: none;
@@ -151,6 +152,19 @@
       object-fit: contain;
       filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.55));
       transform: translateZ(0);
+    }
+
+    .cover-logo-center {
+      position: absolute;
+      left: 50%;
+      top: 18px;
+      transform: translateX(-50%);
+      width: clamp(24px, 3.4vw, 38px);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.5));
+      z-index: 3;
+      pointer-events: none;
     }
 
     .cover-photo {
@@ -278,10 +292,10 @@
     }
 
     form {
-      padding: 26px 35px 40px;
-      margin-top: -26px;
+      padding: 20px 35px 40px;
+      margin-top: 0;
       background:
-        linear-gradient(180deg, rgba(8, 7, 12, 0.04) 0%, rgba(8, 7, 12, 0.20) 26%, rgba(8, 7, 12, 0.34) 100%);
+        linear-gradient(180deg, rgba(28, 23, 20, 0.92) 0%, rgba(28, 23, 20, 0.95) 26%, rgba(28, 23, 20, 0.98) 100%);
       border-radius: 0 0 25px 25px;
     }
 
@@ -651,9 +665,13 @@
         padding: 14px 14px;
       }
 
+      .cover-logo-center {
+        top: 14px;
+      }
+
       form {
-        padding: 20px 25px 30px 25px;
-        margin-top: -20px;
+        padding: 16px 25px 30px 25px;
+        margin-top: 0;
       }
 
       .page-footer {
@@ -735,13 +753,18 @@
         padding: 12px 12px;
       }
 
+      .cover-logo-center {
+        top: 13px;
+        width: 30px;
+      }
+
       .cover-photo-container::after {
-        height: 64px;
+        height: 24px;
       }
 
       form {
-        padding: 18px 20px 25px 20px;
-        margin-top: -18px;
+        padding: 14px 20px 25px 20px;
+        margin-top: 0;
       }
 
       .page-footer {
@@ -854,13 +877,18 @@
         max-width: 48%;
       }
 
+      .cover-logo-center {
+        top: 12px;
+        width: 26px;
+      }
+
       .cover-photo-container::after {
-        height: 56px;
+        height: 20px;
       }
 
       form {
-        padding: 16px 18px 20px 18px;
-        margin-top: -16px;
+        padding: 12px 18px 20px 18px;
+        margin-top: 0;
       }
 
       .page-footer {
@@ -929,8 +957,8 @@
       }
 
       form {
-        padding: 14px 15px 18px 15px;
-        margin-top: -14px;
+        padding: 10px 15px 18px 15px;
+        margin-top: 0;
       }
 
       .form-title {
@@ -959,6 +987,7 @@
       <img class="cover-photo" src="card-photo.png" alt="Event cover photo">
       <div class="cover-overlay" aria-hidden="true">
         <img class="cover-logo" src="Tezspire logo.png" alt="">
+        <img class="cover-logo-center" src="middle-logo.png" alt="">
         <img class="cover-logo" src="rise above.png" alt="">
       </div>
     </div>
