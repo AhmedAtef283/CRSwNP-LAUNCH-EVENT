@@ -248,12 +248,13 @@
       justify-content: center;
       gap: 14px;
       margin: 6px 0 12px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .event-header .event-title {
       margin: 0;
-      margin-right: 23px;
+      margin-right: 14px;
+      white-space: nowrap;
     }
 
     .event-header .cme-badge {
@@ -778,11 +779,11 @@
       }
 
       .event-title {
-        font-size: 26px;
+        font-size: 22px;
       }
 
       .event-header .cme-badge {
-        width: 100px;
+        width: 88px;
       }
 
 
@@ -881,11 +882,11 @@
       }
 
       .event-title {
-        font-size: 24px;
+        font-size: 19px;
       }
 
       .event-header .cme-badge {
-        width: 92px;
+        width: 74px;
       }
 
 
@@ -911,6 +912,22 @@
     }
 
     @media (max-width: 360px) {
+      .event-header {
+        gap: 8px;
+      }
+
+      .event-title {
+        font-size: 17px;
+      }
+
+      .event-header .event-title {
+        margin-right: 8px;
+      }
+
+      .event-header .cme-badge {
+        width: 64px;
+      }
+
       form {
         padding: 14px 15px 18px 15px;
         margin-top: -14px;
