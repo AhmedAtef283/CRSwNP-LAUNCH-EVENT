@@ -57,7 +57,10 @@
     .form-container {
       width: 100%;
       max-width: 760px;
-      background: rgba(8, 7, 12, 0.56);
+      background:
+        radial-gradient(circle at 18% 20%, rgba(255, 76, 122, 0.10), transparent 55%),
+        radial-gradient(circle at 82% 12%, rgba(232, 172, 32, 0.10), transparent 52%),
+        linear-gradient(180deg, rgba(10, 8, 14, 0.72) 0%, rgba(6, 5, 9, 0.80) 100%);
       padding: 0;
       border-radius: 25px;
       backdrop-filter: blur(15px);
@@ -93,8 +96,8 @@
       margin: 0;
       padding: 0;
       display: block !important;
-      object-fit: cover;
-      object-position: center bottom;
+      object-fit: contain;
+      object-position: center;
       background-color: transparent;
       image-rendering: auto;
     }
@@ -107,10 +110,52 @@
       display: block;
       position: relative;
       box-shadow: none;
-      background-color: transparent;
+      background-color: rgba(0, 0, 0, 0.15);
       height: auto;
-      max-height: none;
       max-width: 100%;
+    }
+
+    /* Merge the image bottom edge into form area */
+    .cover-photo-container::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 78px;
+      background: linear-gradient(
+        to bottom,
+        rgba(8, 7, 12, 0) 0%,
+        rgba(8, 7, 12, 0.22) 48%,
+        rgba(8, 7, 12, 0.46) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .cover-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 18px 20px;
+      pointer-events: none;
+    }
+
+    .cover-logo {
+      max-width: 48%;
+      height: clamp(56px, 8.5vw, 110px);
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.55));
+      transform: translateZ(0);
+    }
+
+    .cover-photo {
+      position: relative;
+      z-index: 0;
     }
 
     .form-container::before {
@@ -187,7 +232,7 @@
     .event-title {
       text-align: center;
       color: rgba(255, 255, 255, 0.96);
-      font-size: 44px;
+      font-size: 38px;
       font-weight: 900;
       margin: 6px 0 10px;
       letter-spacing: 0.8px;
@@ -208,6 +253,7 @@
 
     .event-header .event-title {
       margin: 0;
+      margin-right: 23px;
     }
 
     .event-header .cme-badge {
@@ -231,8 +277,10 @@
     }
 
     form {
-      padding: 0 35px 40px;
-      background: transparent;
+      padding: 26px 35px 40px;
+      margin-top: -26px;
+      background:
+        linear-gradient(180deg, rgba(8, 7, 12, 0.04) 0%, rgba(8, 7, 12, 0.20) 26%, rgba(8, 7, 12, 0.34) 100%);
       border-radius: 0 0 25px 25px;
     }
 
@@ -319,10 +367,10 @@
       padding: 17px 25px;
       margin-bottom: 20px;
       border-radius: 12px;
-      border: 1.5px solid rgba(255, 255, 255, 0.20);
+      border: 1.5px solid rgba(240, 193, 83, 0.20);
       font-size: 16px;
       color: #27343d;
-      background-color: rgba(255, 255, 255, 0.95);
+      background-color: rgba(255, 255, 255, 0.93);
       box-sizing: border-box;
       transition: all 0.3s ease;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -586,20 +634,25 @@
       }
 
       .cover-photo-container {
-        height: 210px;
-        max-height: 210px;
-        min-height: 210px;
+        height: auto;
+        max-height: none;
+        min-height: 0;
       }
 
       .cover-photo {
         width: 100%;
         height: auto;
-        object-fit: cover;
-        object-position: center bottom;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .cover-overlay {
+        padding: 14px 14px;
       }
 
       form {
-        padding: 0 25px 30px 25px;
+        padding: 20px 25px 30px 25px;
+        margin-top: -20px;
       }
 
       .page-footer {
@@ -628,7 +681,7 @@
       }
 
       .event-title {
-        font-size: 34px;
+        font-size: 30px;
       }
 
       .event-header .cme-badge {
@@ -665,8 +718,6 @@
 
       .cover-photo-container {
         height: auto;
-        max-height: none;
-        min-height: 0;
         overflow: hidden;
         border-radius: 18px 18px 0 0;
       }
@@ -675,12 +726,21 @@
         width: 100%;
         height: auto;
         border-radius: 18px 18px 0 0;
-        object-fit: cover;
-        object-position: center bottom;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .cover-overlay {
+        padding: 12px 12px;
+      }
+
+      .cover-photo-container::after {
+        height: 64px;
       }
 
       form {
-        padding: 0 20px 25px 20px;
+        padding: 18px 20px 25px 20px;
+        margin-top: -18px;
       }
 
       .page-footer {
@@ -718,7 +778,7 @@
       }
 
       .event-title {
-        font-size: 30px;
+        font-size: 26px;
       }
 
       .event-header .cme-badge {
@@ -776,8 +836,6 @@
 
       .cover-photo-container {
         height: auto;
-        max-height: none;
-        min-height: 0;
         overflow: hidden;
         border-radius: 15px 15px 0 0;
       }
@@ -786,12 +844,22 @@
         width: 100%;
         height: auto;
         border-radius: 15px 15px 0 0;
-        object-fit: cover;
-        object-position: center bottom;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .cover-logo {
+        height: 64px;
+        max-width: 48%;
+      }
+
+      .cover-photo-container::after {
+        height: 56px;
       }
 
       form {
-        padding: 0 18px 20px 18px;
+        padding: 16px 18px 20px 18px;
+        margin-top: -16px;
       }
 
       .page-footer {
@@ -813,7 +881,7 @@
       }
 
       .event-title {
-        font-size: 26px;
+        font-size: 24px;
       }
 
       .event-header .cme-badge {
@@ -844,7 +912,8 @@
 
     @media (max-width: 360px) {
       form {
-        padding: 0 15px 18px 15px;
+        padding: 14px 15px 18px 15px;
+        margin-top: -14px;
       }
 
       .form-title {
@@ -869,18 +938,11 @@
 </head>
 <body>
   <div class="form-container">
-    <div class="logo-bar">
-      <div class="logo-left">
-        <img
-          src="Tezspire logo.png"
-          alt="Tezspire"
-        >
-      </div>
-      <div class="logo-right">
-        <img
-          src="rise above.png"
-          alt="Rise Above"
-        >
+    <div class="cover-photo-container">
+      <img class="cover-photo" src="card-photo.png" alt="Event cover photo">
+      <div class="cover-overlay" aria-hidden="true">
+        <img class="cover-logo" src="Tezspire logo.png" alt="">
+        <img class="cover-logo" src="rise above.png" alt="">
       </div>
     </div>
     <form id="registration-form">
@@ -888,7 +950,6 @@
         <h1 class="event-title">CRSwNP LAUNCH EVENT</h1>
         <img class="cme-badge" src="CME 4 Hours.png" alt="CME 4 Hours">
       </div>
-      <p class="form-subtitle">Please fill in all the required information</p>
       
       <input type="text" name="FirstName" placeholder="First Name" required>
       <input type="text" name="LastName" placeholder="Last Name" required>
