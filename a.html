@@ -134,6 +134,20 @@
       pointer-events: none;
     }
 
+    /* Title pinned to bottom edge of the cover image */
+    .cover-event-header {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 3;
+      padding: 12px 20px 2px;
+      background: linear-gradient(to bottom,
+          rgba(28, 23, 20, 0) 0%,
+          rgba(28, 23, 20, 0.35) 35%,
+          rgba(28, 23, 20, 0.88) 100%);
+    }
+
     .cover-overlay {
       position: absolute;
       inset: 0;
@@ -274,7 +288,7 @@
       color: rgba(255, 255, 255, 0.96);
       font-size: 38px;
       font-weight: 900;
-      margin: 6px 0 10px;
+      margin: 0;
       letter-spacing: 0.8px;
       text-transform: uppercase;
       line-height: 1.05;
@@ -284,10 +298,10 @@
 
     .event-header {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
       gap: 14px;
-      margin: 6px 0 12px;
+      margin: 0 0 8px;
       flex-wrap: nowrap;
     }
 
@@ -295,6 +309,8 @@
       margin: 0;
       margin-right: 14px;
       white-space: nowrap;
+      flex: 1 1 auto;
+      min-width: 0;
     }
 
     .event-header .cme-badge {
@@ -303,6 +319,11 @@
       object-fit: contain;
       filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.22));
       flex: 0 0 auto;
+      display: block;
+      align-self: flex-end;
+      margin: 0;
+      transform: translateY(1px);
+      flex-shrink: 0;
     }
 
     .event-title strong {
@@ -706,6 +727,10 @@
         padding: 14px 14px 0;
       }
 
+      .cover-event-header {
+        padding: 10px 16px 2px;
+      }
+
       form {
         padding: 16px 25px 30px 25px;
         margin-top: 0;
@@ -792,6 +817,10 @@
 
       .cover-overlay {
         padding: 12px 12px 0;
+      }
+
+      .cover-event-header {
+        padding: 8px 14px 2px;
       }
 
       .cover-logo-center {
@@ -944,6 +973,10 @@
         height: 20px;
       }
 
+      .cover-event-header {
+        padding: 8px 12px 2px;
+      }
+
       form {
         padding: 12px 18px 20px 18px;
         margin-top: 0;
@@ -1054,13 +1087,12 @@
         </div>
         <img class="cover-logo cover-logo-right" src="rise above.png" alt="">
       </div>
-    </div>
-    <form id="registration-form">
-      <div class="event-header">
+      <div class="event-header cover-event-header">
         <h1 class="event-title">CRSwNP LAUNCH EVENT</h1>
         <img class="cme-badge" src="CME 4 Hours.png" alt="CME 4 Hours">
       </div>
-
+    </div>
+    <form id="registration-form">
       <input type="text" name="FirstName" placeholder="First Name" required>
       <input type="text" name="LastName" placeholder="Last Name" required>
       <input type="text" name="Speciality" placeholder="Speciality" required>
